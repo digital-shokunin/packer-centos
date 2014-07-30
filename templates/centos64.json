@@ -3,35 +3,13 @@
     "provisioner": "provisionerless",
     "provisioner_version": ""
   },
-  "builders": [{
-    "vm_name": "centos64",
-    "type": "vmware",
-    "guest_os_type": "centos-64",
-    "http_directory": "http",
-    "iso_url": "http://mirrors.kernel.org/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso",
-    "iso_checksum": "0128cfc7c86072b13ee80dd013e0e5d7",
-    "iso_checksum_type": "md5",
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_wait_timeout": "10000s",
-    "tools_upload_flavor": "linux",
-    "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks.cfg<enter>"
-    ],
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 10140,
-    "vmx_data": {
-      "memsize": "512",
-      "numvcpus": "1",
-      "cpuid.coresPerSocket": "1"
-    }
-  },
+  "builders": [
   {
     "vm_name": "centos64",
-    "type": "virtualbox",
+    "type": "virtualbox-iso",
     "http_directory": "http",
-    "iso_url": "http://mirrors.kernel.org/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso",
-    "iso_checksum": "0128cfc7c86072b13ee80dd013e0e5d7",
+    "iso_url": "http://mirror.cs.vt.edu/pub/CentOS/7/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
+    "iso_checksum": "713ea7847adcdd1700e92429f212721a",
     "iso_checksum_type": "md5",
     "guest_os_type": "RedHat_64",
     "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
